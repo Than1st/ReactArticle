@@ -30,9 +30,9 @@ export const Profile = () => {
         image: data ? data.data.image : '',
         alamat: data ? data.data.alamat : '',
     })
-    const dataPendidikan = data? data.data.pendidikan.split('|'):''
-    const dataOrganisasi = data? data.data.organisasi.split('|'):''
-    const dataKerja = data? data.data.kerja.split('|'):''
+    const dataPendidikan = data.data.pendidikan? data.data.pendidikan.split('|'):''
+    const dataOrganisasi = data.data.organisasi? data.data.organisasi.split('|'):''
+    const dataKerja = data.data.kerja? data.data.kerja.split('|'):''
     const [pendidikan, setPendidikan] = useState({
         jenjang: dataPendidikan? dataPendidikan[0]:'def',
         instansi: dataPendidikan? dataPendidikan[1]:'',
@@ -127,7 +127,6 @@ export const Profile = () => {
                 })
                 setIsUpdateUsers(true)
                 dispatch(UpdateUsers(dataUpdate, id))
-                // sessionStorage.setItem('tempUserData', JSON.stringify(dataUpdate))
             }
         })
     }
@@ -138,10 +137,9 @@ export const Profile = () => {
         }
         dispatch(GetUserArticle(data ? data.data.id : 0))
         if(isUpdateUsers){
-            console.log(updateUsersResult)
             let timerInterval
             Swal.fire({
-                title: 'Update Users success ',
+                title: 'Update Users success',
                 html: 'Auto Close',
                 timer: 1000,
                 showConfirmButton: false,
@@ -181,7 +179,7 @@ export const Profile = () => {
         <div className='container pt-5'>
             <div className='row mb-4'>
                 <div className='col-sm-3 d-flex justify-content-center'>
-                    <img className='rounded-circle w-75 h-auto'
+                    <img className='rounded-circle object-fit-cover' style={{height: "200px", width: "200px"}}
                          src={data ? data.data.image : "https://via.placeholder.com/100"} alt='...'/>
                 </div>
                 <div className='col-sm-9'>
@@ -189,7 +187,7 @@ export const Profile = () => {
                     <p>{data ? data.data.email : "Email"}</p>
                     <p><span className='badge bg-primary'>{data ? data.data.role : "Admin"}</span></p>
                     <div className='row'>
-                        <div className='col-sm-2 p-1'>
+                        <div className='col-sm-2'>
                             <button className='btn btn-primary w-100' data-bs-toggle="modal" data-bs-target="#editCv">
                                 <AiOutlineEdit className='me-2'/>Edit Profile
                             </button>

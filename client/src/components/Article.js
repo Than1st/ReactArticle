@@ -29,7 +29,7 @@ export const Article = () => {
                                         <p className="card-text text-truncate">{value.content}</p>
                                         <hr/>
                                         <div style={{fontSize: "13px"}}>
-                                            <img className='rounded-circle me-2' style={{height: "auto", width: "35px"}}
+                                            <img className='rounded-circle me-2 object-fit-cover' style={{height: "35px", width: "35px"}}
                                                  src={value.User.image}
                                                  alt=''/>
                                             <b>{value.User.username}</b> | {`${articleDate.getDate().toString().length === 1 ? '0' + articleDate.getDate() : articleDate.getDate()}-${articleDate.getMonth().toString().length === 1 ? '0' + articleDate.getMonth() : articleDate.getMonth()}-${articleDate.getFullYear()}

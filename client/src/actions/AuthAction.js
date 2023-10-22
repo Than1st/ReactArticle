@@ -58,6 +58,7 @@ export const UpdateUsers = (data, id) => {
             data: data,
             timeout: 120000
         }).then((res) => {
+            sessionStorage.setItem('userdata', JSON.stringify({data: res.data[0]}))
             dispatch({
                 type: UPDATE_USERS,
                 payload: {
