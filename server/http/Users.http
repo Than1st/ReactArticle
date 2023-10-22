@@ -1,0 +1,47 @@
+POST http://localhost:3000/users/register
+Content-Type: application/json
+
+{
+  "username": "SulthanLR",
+  "email": "sulthanlr@gmail.com",
+  "password": "123",
+  "image": "https://i.pinimg.com/1200x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg",
+  "role": "Admin"
+}
+
+###
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+  "username": "SulthanLR",
+  "password": "123"
+}
+
+###
+PUT http://localhost:3000/users/update/2
+Content-Type: application/json
+
+{
+  "username": "SulthanLR",
+  "email": "sulthanlr@gmail.com",
+  "image": "https://i.pinimg.com/1200x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg",
+  "alamat": "Karawang Jawa barat",
+  "pendidikan": "s1|Universitas Budi Luhur|Teknik Informatika|3.76",
+  "organisasi": "Lab ICT Budi Luhur|Asisten Lab|2023-10-05|2023-10-24",
+  "kerja": "PT Kereta Commuter Indonesia|Information Technology|Magang|Membuat aplikasi website untuk internal|2023-10-04|2023-10-31"
+}
+
+###
+GET http://localhost:3000/users
+Accept: application/json
+
+###
+GET http://localhost:3000/users/detail/2
+Accept: application/json
+
+###
+DELETE http://localhost:3000/users/delete/5
+Accept: application/json
+
+###

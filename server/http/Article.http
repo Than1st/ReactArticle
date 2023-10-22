@@ -1,0 +1,40 @@
+POST http://localhost:3000/article/create
+Content-Type: application/json
+
+{
+  "title": "Dari Aku yang tersakiti",
+  "content": "Suatu hari aku menginap di tante ku",
+  "status": true,
+  "image": "https://asset.kompas.com/crops/ACTH64iG4knkQhn2Msee3JwFiLY=/0x0:1000x667/750x500/data/photo/2018/11/13/618468038.jpg",
+  "userid": 6
+}
+
+###
+PUT http://localhost:3000/article/update/3
+Content-Type: application/json
+
+{
+  "title": "Dari Aku yang tersakitiiiii",
+  "content": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.",
+  "status": true,
+  "image": "https://asset.kompas.com/crops/ACTH64iG4knkQhn2Msee3JwFiLY=/0x0:1000x667/750x500/data/photo/2018/11/13/618468038.jpg",
+  "userid": 6
+}
+
+###
+GET http://localhost:3000/article
+Accept: application/json
+
+###
+GET http://localhost:3000/article/users/6
+Accept: application/json
+
+###
+GET http://localhost:3000/article/detail/5
+Accept: application/json
+
+###
+DELETE http://localhost:3000/article/delete/9
+Accept: application/json
+
+###
