@@ -1,10 +1,8 @@
-import {useState} from "react";
 import {BsGithub, BsInstagram} from "react-icons/bs";
 import {AiOutlineLinkedin} from "react-icons/ai";
 import {IoNavigate} from "react-icons/io5";
 
 export const ContactUs = () => {
-    const [image, setImage] = useState('https://via.placeholder.com/100')
     return (
         <div className='container pt-5'>
             <div className='card w-50'>
