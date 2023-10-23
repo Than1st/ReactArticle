@@ -57,7 +57,6 @@ class UsersController {
         try {
             const {username, password} = req.body
             const data = await Users.findOne({where: {username: username}})
-            console.log(data)
             if (data) {
                 const token = sign({data}, process.env.SECRET_KEY)
                 await compareSync(password, data.password) ?

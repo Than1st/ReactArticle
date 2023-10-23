@@ -76,7 +76,7 @@ export const GetDetailArticle = (params) => {
         })
     }
 }
-export const CreateArticle = (data) => {
+export const CreateArticle = (data, token) => {
     return async (dispatch) => {
         dispatch({
             type: CREATE_ARTICLE,
@@ -89,6 +89,7 @@ export const CreateArticle = (data) => {
         await axios({
             method: "POST",
             url: "http://localhost:3000/article/create",
+            headers:{authorization: token},
             data: data,
             timeout: 120000
         }).then((res) => {
@@ -112,7 +113,7 @@ export const CreateArticle = (data) => {
         })
     }
 }
-export const GetUserArticle = (params) => {
+export const GetUserArticle = (params, token) => {
     return async (dispatch) => {
         dispatch({
             type: GET_USERS_ARTICLE,
@@ -125,6 +126,9 @@ export const GetUserArticle = (params) => {
         await axios({
             method: "GET",
             url: "http://localhost:3000/article/users/"+params,
+            headers: {
+              authorization: token
+            },
             timeout: 120000
         }).then((res) => {
             dispatch({
@@ -147,7 +151,7 @@ export const GetUserArticle = (params) => {
         })
     }
 }
-export const UpdateArticle = (data, params) => {
+export const UpdateArticle = (data, params, token) => {
     return async (dispatch) => {
         dispatch({
             type: UPDATE_ARTICLE,
@@ -160,6 +164,7 @@ export const UpdateArticle = (data, params) => {
         await axios({
             method: "PUT",
             url: "http://localhost:3000/article/update/"+params,
+            headers: {authorization: token},
             data: data,
             timeout: 120000
         }).then((res) => {
@@ -183,7 +188,7 @@ export const UpdateArticle = (data, params) => {
         })
     }
 }
-export const DeleteArticle = (params) => {
+export const DeleteArticle = (params, token) => {
     return async (dispatch) => {
         dispatch({
             type: DELETE_ARTICLE,
@@ -196,6 +201,7 @@ export const DeleteArticle = (params) => {
         await axios({
             method: "DELETE",
             url: "http://localhost:3000/article/delete/"+params,
+            headers:{authorization: token},
             timeout: 120000
         }).then((res) => {
             dispatch({

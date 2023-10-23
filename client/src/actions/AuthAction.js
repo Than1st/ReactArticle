@@ -41,7 +41,7 @@ export const DetailsUsers = (id) => {
         })
     }
 }
-export const UpdateUsers = (data, id) => {
+export const UpdateUsers = (data, id, token) => {
     return async (dispatch) => {
         dispatch({
             type: UPDATE_USERS,
@@ -55,10 +55,11 @@ export const UpdateUsers = (data, id) => {
         await axios({
             method: "PUT",
             url: "http://localhost:3000/users/update/"+id,
+            headers: {authorization: token},
             data: data,
             timeout: 120000
         }).then((res) => {
-            sessionStorage.setItem('userdata', JSON.stringify({data: res.data[0]}))
+            sessionStorage.setItem('userdata', JSON.stringify({data: res.data[0], token: token}))
             dispatch({
                 type: UPDATE_USERS,
                 payload: {

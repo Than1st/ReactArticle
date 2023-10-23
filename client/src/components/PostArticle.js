@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {useForm} from "react-hook-form";
 import {useDispatch, useSelector} from "react-redux";
-import {CreateArticle, UpdateArticle} from "../actions/ArticleActions";
+import {CreateArticle} from "../actions/ArticleActions";
 import Swal from "sweetalert2";
 import {useNavigate} from "react-router-dom";
 
@@ -35,7 +35,7 @@ export const PostArticle = () => {
         }).then((res)=>{
             if (res.isConfirmed){
                 setIsPost(true)
-                dispatch(CreateArticle(data))
+                dispatch(CreateArticle(data, dataUser? dataUser.token:''))
             }
         })
     }

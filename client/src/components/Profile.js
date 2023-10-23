@@ -89,7 +89,7 @@ export const Profile = () => {
             if (res.isConfirmed) {
                 event.preventDefault()
                 setIsUpdate(true)
-                dispatch(UpdateArticle(dataEdit, id))
+                dispatch(UpdateArticle(dataEdit, id, data? data.token:''))
             }
         })
     }
@@ -103,7 +103,7 @@ export const Profile = () => {
             if (res.isConfirmed) {
                 event.preventDefault()
                 setIsDelete(true)
-                dispatch(DeleteArticle(id))
+                dispatch(DeleteArticle(id, data? data.token:''))
             }
         })
     }
@@ -126,7 +126,7 @@ export const Profile = () => {
                     kerja: `${kerja.tempatKerja}|${kerja.divisi}|${kerja.jabatan}|${kerja.deskripsi}|${kerja.mulai}|${kerja.akhir}`,
                 })
                 setIsUpdateUsers(true)
-                dispatch(UpdateUsers(dataUpdate, id))
+                dispatch(UpdateUsers(dataUpdate, id, data? data.token:''))
             }
         })
     }
@@ -135,7 +135,7 @@ export const Profile = () => {
         if (!data) {
             navigate('/')
         }
-        dispatch(GetUserArticle(data ? data.data.id : 0))
+        dispatch(GetUserArticle(data ? data.data.id : 0, data? data.token:''))
         if(isUpdateUsers){
             let timerInterval
             Swal.fire({
@@ -356,8 +356,7 @@ export const Profile = () => {
                                     <div style={{fontSize: "13px"}}>
                                         <div className='row'>
                                             <div className='col-sm-6'>
-                                                <img className='rounded-circle me-2'
-                                                     style={{height: "auto", width: "35px"}}
+                                                <img  className='rounded-circle me-2 object-fit-cover' style={{height: "35px", width: "35px"}}
                                                      src={value.User.image}
                                                      alt=''/>
                                                 <b>{value.User.username}</b> | {`${articleDate.getDate().toString().length === 1 ? '0' + articleDate.getDate() : articleDate.getDate()}-${articleDate.getMonth().toString().length === 1 ? '0' + articleDate.getMonth() : articleDate.getMonth()}-${articleDate.getFullYear()}
